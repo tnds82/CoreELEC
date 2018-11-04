@@ -3,15 +3,12 @@
 # Copyright (C) 2017-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="linux"
-PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kernel.org"
 PKG_DEPENDS_HOST="ccache:host"
 PKG_DEPENDS_TARGET="toolchain cpio:host kmod:host pciutils xz:host wireless-regdb keyutils $KERNEL_EXTRA_DEPENDS_TARGET"
 PKG_DEPENDS_INIT="toolchain"
 PKG_NEED_UNPACK="$LINUX_DEPENDS"
-PKG_SECTION="linux"
-PKG_SHORTDESC="linux26: The Linux kernel 2.6 precompiled kernel binary image and modules"
 PKG_LONGDESC="This package contains a precompiled kernel image and the modules."
 PKG_IS_KERNEL_PKG="yes"
 
@@ -27,8 +24,8 @@ case "$LINUX" in
     PKG_BUILD_PERF="no"
     ;;
   amlogic-3.14)
-    PKG_VERSION="72644dccad7bb3bf098e0b54f67568286f33da51"
-    PKG_SHA256="7ed82a36ac377b6ef9340b20dee1f9e72a79c48df0ce1491d8348ca74f26f307"
+    PKG_VERSION="b65be5acb7dd972a6b75dc6c6afb1b56b602b689"
+    PKG_SHA256="49afe3f63a2055c068e14ef2921b4725efc4c6c5d74f2a7716ef72a669bdb16e"
     PKG_URL="https://github.com/CoreELEC/linux-amlogic/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
     PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET aml-dtbtools:host"
@@ -41,14 +38,14 @@ case "$LINUX" in
     PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
     ;;
   raspberrypi)
-    PKG_VERSION="d2b2e0421388d5b7acd1cba9bd197ff0ebee95ae" # 4.18.10
-    PKG_SHA256="4013f17aed011b69cac4ca940e0b7a188e701aea8b70ffef14fc3196da091157"
+    PKG_VERSION="83bf476e16c7494084431b6f7fd953c096535f5e" # 4.19
+    PKG_SHA256="4cf553c5f99fec48c6143b59ca5f8f83f3ae36d0113a39954c7e8499d07b42f2"
     PKG_URL="https://github.com/raspberrypi/linux/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
     ;;
   *)
-    PKG_VERSION="4.18.10"
-    PKG_SHA256="10604f7f8ccab5e7ce71f2e87d1410be679cd11c29c6c608ce35df1db40991de"
+    PKG_VERSION="4.19"
+    PKG_SHA256="0c68f5655528aed4f99dae71a5b259edc93239fa899e2df79c055275c21749a1"
     PKG_URL="https://www.kernel.org/pub/linux/kernel/v4.x/$PKG_NAME-$PKG_VERSION.tar.xz"
     PKG_PATCH_DIRS="default"
     ;;

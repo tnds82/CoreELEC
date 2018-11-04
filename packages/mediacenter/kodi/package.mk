@@ -3,20 +3,17 @@
 # Copyright (C) 2017-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="kodi"
-PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
 PKG_DEPENDS_TARGET="toolchain JsonSchemaBuilder:host TexturePacker:host Python2 zlib systemd pciutils lzo pcre swig:host libass curl fontconfig fribidi tinyxml libjpeg-turbo freetype libcdio taglib libxml2 libxslt rapidjson sqlite ffmpeg crossguid giflib libdvdnav libhdhomerun libfmt lirc libfstrcmp flatbuffers:host flatbuffers texturecache.py"
-PKG_SECTION="mediacenter"
-PKG_SHORTDESC="kodi: Kodi Mediacenter"
-PKG_LONGDESC="Kodi Media Center (which was formerly named Xbox Media Center or XBMC) is a free and open source cross-platform media player and home entertainment system software with a 10-foot user interface designed for the living-room TV. Its graphical user interface allows the user to easily manage video, photos, podcasts, and music from a computer, optical disk, local network, and the internet using a remote control."
+PKG_LONGDESC="A free and open source cross-platform media player."
 
 PKG_PATCH_DIRS="$KODI_VENDOR"
 
 case $KODI_VENDOR in
   raspberrypi)
-    PKG_VERSION="newclock5_18.0b3-Leia"
-    PKG_SHA256="e56d6eb49b1a9beff2a45b64019de3da0abc9b930684c08e079c4d1d560b295a"
+    PKG_VERSION="newclock5_18.0b4-Leia"
+    PKG_SHA256="4022a169e1467a4d5c3b338ae0882d22febe49f2e5727c83b60a6e6201e9dae7"
     PKG_URL="https://github.com/popcornmix/xbmc/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_NAME="kodi-$KODI_VENDOR-$PKG_VERSION.tar.gz"
     ;;
@@ -27,8 +24,8 @@ case $KODI_VENDOR in
     PKG_SOURCE_NAME="kodi-$KODI_VENDOR-$PKG_VERSION.tar.gz"
     ;;
   *)
-    PKG_VERSION="d50c0516f1571eed2268274e58bf3323b7ed3d0b"
-    PKG_SHA256="f58de569ef5e90fc94b440a895a1ede4a42846a383a35d0932ec0da6e987193f"
+    PKG_VERSION="5b29afbf1aab164ebce6a600a88c4215e90ef92d"
+    PKG_SHA256="64676438a0426fbf0fd74aac38a20f16368dbbb9787c0d1b4c6c26bc5c12b492"
     PKG_URL="https://github.com/xbmc/xbmc/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_NAME="kodi-$PKG_VERSION.tar.gz"
     ;;
@@ -283,6 +280,7 @@ post_makeinstall_target() {
   mkdir -p $INSTALL/usr/bin
     cp $PKG_DIR/scripts/cputemp $INSTALL/usr/bin
       ln -sf cputemp $INSTALL/usr/bin/gputemp
+    cp $PKG_DIR/scripts/kodi-remote $INSTALL/usr/bin
     cp $PKG_DIR/scripts/setwakeup.sh $INSTALL/usr/bin
 
   mkdir -p $INSTALL/usr/share/kodi/addons
